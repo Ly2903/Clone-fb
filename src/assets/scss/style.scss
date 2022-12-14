@@ -1,0 +1,25 @@
+.date-picker {
+  width: 100%;
+  div {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -6px;
+    select {
+      width: calc(100% / 3);
+      border: 1px solid #dddfe2;
+      border-radius: 6px;
+      margin: 0 6px;
+      height: 38px;
+      padding-left: 6px;
+      :nth-child(1) {
+        display: none;
+      }
+    }
+  }
+}
+
+.errorDate {
+  select {
+    border: 1px solid #f87171 !important;
+  }
+}
