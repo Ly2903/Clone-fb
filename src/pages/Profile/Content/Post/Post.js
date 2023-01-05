@@ -1,8 +1,5 @@
-import { faLocation, faLocationDot } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import CreatePost from "../../../CreatePost/CreatePost";
-import Wrapper from "../../../Wrapper/Wrapper";
+import CreatePost from "../../../../components/Content/CreatePost/CreatePost";
 import About from "./About";
 import PostContent from "./PostContent";
 

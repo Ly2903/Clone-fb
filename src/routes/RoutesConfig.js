@@ -1,14 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Reels from "../Content/ReelTime/Reels/Reels";
-import Room from "../Content/ReelTime/Room/Room";
-import Stories from "../Content/ReelTime/Story/Stories";
-import Home from "../Home/Home";
-import Login from "../Auth/Login/Login";
-import LoginValidation from "../Auth/Login/LoginValidation";
-import Register from "../Auth/Register/Register";
-import PrivateRoutes from "./PrivateRoutes";
-import Profile from "../Profile/Profile";
+import Home from "../pages/Home/Home";
+import Login from "../components/Auth/Login/Login";
+import LoginValidation from "../components/Auth/Login/LoginValidation";
+import Profile from "../pages/Profile/Profile";
 
 const RoutesConfig = () => {
   return (
@@ -16,7 +11,9 @@ const RoutesConfig = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/loginValidation" element={<LoginValidation />} />
-        <Route
+        <Route index path="/" element={<Home />} />
+        <Route index path="/profile" element={<Profile />} />
+        {/* <Route
           index
           path="/"
           element={
@@ -33,7 +30,7 @@ const RoutesConfig = () => {
               <Profile />
             </PrivateRoutes>
           }
-        />
+        /> */}
       </Routes>
     </BrowserRouter>
   );

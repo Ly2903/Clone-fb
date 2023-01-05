@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
-import TooltipError from "../../Tooltip/TooltipError";
+import TooltipError from "../../Custom/Tooltip/TooltipError";
 import { login } from "../authSlice";
 import {
   requiredError,

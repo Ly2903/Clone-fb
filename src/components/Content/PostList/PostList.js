@@ -1,10 +1,8 @@
 import React from "react";
-import Wrapper from "../Wrapper/Wrapper";
 import PostItem from "./PostItem/PostItem";
-import avt from "../../assets/images/avt.jpg";
-import image1 from "../../assets/images/image1.jpg";
-import image2 from "../../assets/images/image2.jpg";
-import image3 from "../../assets/images/image3.jpg";
+import avt from "../../../assets/images/avt.jpg";
+import image2 from "../../../assets/images/image2.jpg";
+import image3 from "../../../assets/images/image3.jpg";
 
 const PostList = () => {
   return (

@@ -9,6 +9,7 @@ import NavBarShortcuts from "./NavBarShortcuts/NavBarShortcuts";
 import NavBarFooter from "./NavBarFooter/NavBarFooter";
 
 const Navbar = ({ width, showFooter, className }) => {
+  console.log(width);
   const classResponsive = `xs:w-[60px] xl:w-[${width}] ` + className;
   return (
     <div className="flex flex-col">

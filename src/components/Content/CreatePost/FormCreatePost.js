@@ -1,5 +1,5 @@
 import React from "react";
-import AaSquare from "../../assets/images/iconEdit/SATP_Aa_square-2x.png";
+import AaSquare from "../../../assets/images/iconEdit/SATP_Aa_square-2x.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FileBase64 from "react-file-base64";
 import {
@@ -15,10 +15,8 @@ import {
   faSortDown,
   faUserTag,
 } from "@fortawesome/free-solid-svg-icons";
-import HoverIcon from "../Icon/HoverIcon";
-import TooltipCustom from "../Tooltip/TooltipIconHeader";
+import HoverIcon from "../../Custom/Icon/HoverIcon";
 import { useDispatch, useSelector } from "react-redux";
-import { Form } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { createPost } from "./PostSlice";
@@ -32,7 +30,7 @@ const FormCreatePost = () => {
   });
   const onSubmit = (d) => {
     console.log(data.attachments[0].base64);
-    // console.log(`bg-[url(${data.attachments[0].base64})]`);
+
     let atms = [];
     Object.values(data.attachments).map((val) => {
       atms.push(val.base64);
@@ -80,7 +78,6 @@ const FormCreatePost = () => {
             >
               <FileBase64
                 {...register("attachments")}
-                className="opacity-0"
                 accept="image/*"
                 multiple={true}
                 value={data.attachments}
@@ -92,7 +89,7 @@ const FormCreatePost = () => {
                 className="text-[22px] text-colorIcon-green"
               />
             </HoverIcon>
-            <div className={`bg-black`}></div>
+            <div className={`bg-[url("")]`}></div>
             <HoverIcon
               className="w-9 h-9 mx-[2px]"
               data-tip="Gắn thẻ người khác"

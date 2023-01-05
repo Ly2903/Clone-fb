@@ -1,16 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
-import Wrapper from "../Wrapper/Wrapper";
-import avt from "../../assets/images/avt.jpg";
+import Wrapper from "../../Wrapper/Wrapper";
+import avt from "../../../assets/images/avt.jpg";
 import OptionItem from "./OptionItem";
 import {
   faFaceLaugh,
   faImages,
   faVideo,
 } from "@fortawesome/free-solid-svg-icons";
-import HoverImg from "../Img/HoverImg";
+import HoverImg from "../../Custom/Img/HoverImg";
 import ModalCreatePost from "./ModalCreatePost";
 import { useSelector } from "react-redux";
-import { getNickname } from "../../constant";
+import { getNickname } from "../../../constant";
 
 const CreatePost = () => {
   const modalRef = useRef();

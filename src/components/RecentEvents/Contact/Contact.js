@@ -5,8 +5,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import HoverIcon from "../../Icon/HoverIcon";
-import TooltipIconHeader from "../../Tooltip/TooltipIconHeader";
+import HoverIcon from "../../Custom/Icon/HoverIcon";
+import TooltipIconHeader from "../../Custom/Tooltip/TooltipIconHeader";
 import ContactItem from "./ContactItem";
 
 const Contact = () => {

@@ -1,5 +1,4 @@
 import React from "react";
-import TabContent from "../../Content/ReelTime/TabContent";
 import About from "./About/About";
 import Checkin from "./Checkin/Checkin";
 import Friends from "./Friends/Friends";
@@ -7,7 +6,7 @@ import Images from "./Images/Images";
 import More from "./More/More";
 import Post from "./Post/Post";
 import Video from "./Video/Video";
-
+import TabContent from "../../../components/Content/ReelTime/TabContent";
 const ContentBody = ({ activeTab }) => {
   return (
     <div className="w-3/4 px-7 mt-4">

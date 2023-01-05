@@ -7,10 +7,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookMessenger } from "@fortawesome/free-brands-svg-icons";
 import logo from "../../assets/images/avt.jpg";
-import HoverIcon from "../Icon/HoverIcon";
-import HoverImg from "../Img/HoverImg";
-import TooltipCustom from "../Tooltip/TooltipIconHeader";
-import InforSetting from "../InforSetting/InforSetting";
+import HoverIcon from "../../components/Custom/Icon/HoverIcon";
+import HoverImg from "../../components/Custom/Img/HoverImg";
+import TooltipCustom from "../../components/Custom/Tooltip/TooltipIconHeader";
+import InforSetting from "./InforSetting/InforSetting";
 
 const Header = () => {
   const [showInforSetting, setShowInforSetting] = useState(false);

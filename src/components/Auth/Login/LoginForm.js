@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
-import Input from "../../CustomTag/Input";
+import Input from "../../Custom/Tag/Input";
 import { login } from "../authSlice";
 
 const LoginForm = () => {

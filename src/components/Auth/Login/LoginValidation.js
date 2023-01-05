@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import imgFB from "../../../assets/images/imgFB.svg";
-import avt from "../../../assets/images/avt.jpg";
-import LoginForm from "./LoginForm";
-import TooltipError from "../../Tooltip/TooltipError";
 import LoginFormValidation from "./LoginFormValidation";
-import Loading from "../../Loading/Loading";
+import Loading from "../../Custom/Loading/Loading";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 

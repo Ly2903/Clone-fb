@@ -3,7 +3,7 @@ import LoginForm from "./LoginForm";
 import Register from "../Register/Register";
 import LoginRecent from "./LoginRecent";
 import { useSelector } from "react-redux";
-import Loading from "../../Loading/Loading";
+import Loading from "../../Custom/Loading/Loading";
 import { ToastContainer } from "react-toastify";
 
 const Login = () => {

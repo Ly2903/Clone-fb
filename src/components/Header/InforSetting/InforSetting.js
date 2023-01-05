@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import avt from "../../assets/images/avt.jpg";
+import avt from "../../../assets/images/avt.jpg";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../Auth/authSlice";
-import { getNickname, Nickname } from "../../constant";
+import { logout } from "../../Auth/authSlice";
+import { getNickname } from "../../../constant";
 
 const InforSetting = ({
   showInforSetting,

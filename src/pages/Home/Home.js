@@ -1,10 +1,10 @@
 import React from "react";
-import RealTime from "../Content/ReelTime/RealTime";
-import CreatePost from "../CreatePost/CreatePost";
-import Header from "../Header/Header";
-import Navbar from "../Navbar/Navbar";
-import PostList from "../PostList/PostList";
-import RecentEvents from "../RecentEvents/RecentEvents";
+import RealTime from "../../components/Content/ReelTime/RealTime";
+import CreatePost from "../../components/Content/CreatePost/CreatePost";
+import Header from "../../components/Header/Header";
+import Navbar from "../../components/Navbar/Navbar";
+import PostList from "../../components/Content/PostList/PostList";
+import RecentEvents from "../../components/RecentEvents/RecentEvents";
 
 const Home = () => {
   return (

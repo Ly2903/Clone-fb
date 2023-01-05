@@ -1,7 +1,7 @@
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import TooltipAccount from "../../Tooltip/TooltipAccount";
+import TooltipAccount from "../../Custom/Tooltip/TooltipAccount";
 
 const AccountItem = ({ account }) => {
   return (

@@ -4,7 +4,7 @@ import avt from "../../../../assets/images/avt.jpg";
 import image4 from "../../../../assets/images/image4.jpg";
 import StoryItem from "./StoryItem";
 import Slider from "react-slick";
-import SliderStories from "../../../SliderConfig/SliderStories";
+import SliderStories from "../../../SliderCustom/SliderStories";
 
 const Stories = () => {
   return (

@@ -1,18 +1,8 @@
 import { faEllipsis, faSortDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { useState } from "react";
-import TabContent from "../../../Content/ReelTime/TabContent";
-import TabReelItem from "../../../Content/ReelTime/TabRealItem";
-import HoverIcon from "../../../Icon/HoverIcon";
-import About from "../About/About";
-import Checkin from "../Checkin/Checkin";
-import Friends from "../Friends/Friends";
-import Images from "../Images/Images";
-import More from "../More/More";
-import Post from "../Post/Post";
-import Video from "../Video/Video";
-
+import TabReelItem from "../../../../components/Content/ReelTime/TabRealItem";
+import HoverIcon from "../../../../components/Custom/Icon/HoverIcon";
 const TabList = ({ activeTab, setActiveTab }) => {
   return (
     <div className=" border-t-[1px] border-color-border mt-4 ">

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import Header from "../Header/Header";
-import Navbar from "../Navbar/Navbar";
+import Header from "../../components/Header/Header";
+import Navbar from "../../components/Navbar/Navbar";
 import ContentBody from "./Content/ContentBody";
 import ContentHeader from "./Content/ContentHeader";
 

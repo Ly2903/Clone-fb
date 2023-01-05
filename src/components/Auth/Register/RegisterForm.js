@@ -1,17 +1,12 @@
-import {
-  faCircleExclamation,
-  faQuestionCircle,
-} from "@fortawesome/free-solid-svg-icons";
+import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
 import SelectDatePicker from "@netojose/react-select-datepicker";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { logDOM } from "@testing-library/react";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
-import TooltipError from "../../Tooltip/TooltipError";
+import TooltipError from "../../Custom/Tooltip/TooltipError";
 import InputCustomBG from "./InputCustomBG";
 import LabelCustom from "./LabelCustom";
 import "../../../assets/scss/style.scss";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   requiredError,

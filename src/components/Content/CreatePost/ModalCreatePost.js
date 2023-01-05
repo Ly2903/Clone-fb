@@ -5,28 +5,13 @@ import React, {
   useRef,
   useState,
 } from "react";
-import HoverImg from "../Img/HoverImg";
-import Wrapper from "../Wrapper/Wrapper";
-import avt from "../../assets/images/avt.jpg";
-import AaSquare from "../../assets/images/iconEdit/SATP_Aa_square-2x.png";
+import HoverImg from "../../Custom/Img/HoverImg";
+import Wrapper from "../../Wrapper/Wrapper";
+import avt from "../../../assets/images/avt.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faClose,
-  faEllipsis,
-  faFaceLaugh,
-  faFaceSmile,
-  faFlag,
-  faImages,
-  faLocation,
-  faLocationDot,
-  faLock,
-  faSortDown,
-  faUserTag,
-} from "@fortawesome/free-solid-svg-icons";
-import HoverIcon from "../Icon/HoverIcon";
-import TooltipCustom from "../Tooltip/TooltipIconHeader";
-import TooltipIconCreatePost from "../Tooltip/TooltipIconCreatePost";
-import { getNickname } from "../../constant";
+import { faClose, faLock, faSortDown } from "@fortawesome/free-solid-svg-icons";
+import TooltipIconCreatePost from "../../Custom/Tooltip/TooltipIconCreatePost";
+import { getNickname } from "../../../constant";
 import { useSelector } from "react-redux";
 import FormCreatePost from "./FormCreatePost";
 

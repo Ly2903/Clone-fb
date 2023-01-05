@@ -1,8 +1,8 @@
 import React from "react";
-import Wrapper from "../../Wrapper/Wrapper";
-import heart from "../../../assets/images/iconReact/heart.svg";
-import haha from "../../../assets/images/iconReact/haha.svg";
-import like from "../../../assets/images/iconReact/like.svg";
+import Wrapper from "../../../Wrapper/Wrapper";
+import heart from "../../../../assets/images/iconReact/heart.svg";
+import haha from "../../../../assets/images/iconReact/haha.svg";
+import like from "../../../../assets/images/iconReact/like.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEarthAmericas,
@@ -12,7 +12,7 @@ import {
   faShare,
   faThumbsUp,
 } from "@fortawesome/free-solid-svg-icons";
-import HoverIcon from "../../Icon/HoverIcon";
+import HoverIcon from "../../../Custom/Icon/HoverIcon";
 
 const PostItem = ({ avt, nickname, content, src, react, time }) => {
   return (

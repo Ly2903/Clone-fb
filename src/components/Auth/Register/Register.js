@@ -1,8 +1,8 @@
-import { faClose, faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useSelector } from "react-redux";
-import Loading from "../../Loading/Loading";
+import Loading from "../../Custom/Loading/Loading";
 import RegisterForm from "./RegisterForm";
 
 const Register = ({ setShowRegisterForm }) => {

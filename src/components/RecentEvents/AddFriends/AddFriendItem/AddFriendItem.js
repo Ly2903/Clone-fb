@@ -1,6 +1,6 @@
 import React from "react";
 import avt from "../../../../assets/images/avt.jpg";
-import HoverImg from "../../../Img/HoverImg";
+import HoverImg from "../../../Custom/Img/HoverImg";
 const AddFriendItem = () => {
   return (
     <div className="flex pt-1 pb-4 mb-3 border-b-[1px] border-color-border">
