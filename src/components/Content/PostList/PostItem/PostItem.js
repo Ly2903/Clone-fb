@@ -4,6 +4,7 @@ import heart from "../../../../assets/images/iconReact/heart.svg";
 import haha from "../../../../assets/images/iconReact/haha.svg";
 import like from "../../../../assets/images/iconReact/like.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import avt from "../../../../assets/images/avt.jpg";
 import {
   faEarthAmericas,
   faEllipsis,
@@ -13,8 +14,16 @@ import {
   faThumbsUp,
 } from "@fortawesome/free-solid-svg-icons";
 import HoverIcon from "../../../Custom/Icon/HoverIcon";
+import Grid from "../../../Grid/Grid";
+import { getTimeString } from "../../../../utils/date";
 
-const PostItem = ({ avt, nickname, content, src, react, time }) => {
+const PostItem = ({ val }) => {
+  const { content, updatedAt, attachments } = val;
+  const { lastName, firstName } = val.user;
+  const nickname = lastName + " " + firstName;
+  let timeString = getTimeString(updatedAt);
+  let src = { images: attachments };
+  let react = { react: "123", comment: "12", share: "3" };
   return (
     <div className="mb-4">
       <Wrapper>
@@ -30,11 +39,11 @@ const PostItem = ({ avt, nickname, content, src, react, time }) => {
                 <div className="absolute h-full w-full top-0 rounded-full group-hover:bg-bg-hover-img"></div>
               </div>
               <div className="text-primary-text flex flex-col">
-                <a href="#" className="font-medium hover:underline">
+                <a href="#" className="font-medium hover:underline capitalize">
                   {nickname}
                 </a>
                 <span className="text-secondary-text text-[13px]">
-                  {time} ·{" "}
+                  {timeString} ·{" "}
                   <FontAwesomeIcon icon={faEarthAmericas} className="text-xs" />
                 </span>
               </div>
@@ -48,16 +57,7 @@ const PostItem = ({ avt, nickname, content, src, react, time }) => {
           </div>
           <div>
             <p className="px-4 pt-1 pb-4 text-primary-text">{content}</p>
-            <div className="min-h-[500px] max-w-[590px]">
-              {src.images.map((val, index) => (
-                <img
-                  key={index}
-                  src={val}
-                  alt="Post image"
-                  className="h-full w-full max-h-[600px]"
-                />
-              ))}
-            </div>
+            <Grid images={src.images}></Grid>
           </div>
           <div className="py-2 px-4">
             <div className="flex justify-between text-secondary-text">

@@ -3,6 +3,7 @@ import AaSquare from "../../../assets/images/iconEdit/SATP_Aa_square-2x.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FileBase64 from "react-file-base64";
 import {
+  faCameraAlt,
   faClose,
   faEllipsis,
   faFaceLaugh,
@@ -19,50 +20,86 @@ import HoverIcon from "../../Custom/Icon/HoverIcon";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { createPost } from "./PostSlice";
+import { createPost, getPosts } from "./PostSlice";
+import "../../../assets/scss/input.scss";
+import { useEffect } from "react";
+import CustomButton from "../../../pages/Profile/Content/CustomButton";
+import Grid from "../../Grid/Grid";
+
 const FormCreatePost = () => {
   const user = useSelector((state) => state.user.currentUser);
   const { handleSubmit, register } = useForm();
   const dispatch = useDispatch();
+
   const [data, setData] = useState({
     content: "",
-    attachments: {},
+    attachment: null,
+    attachments: [],
   });
   const onSubmit = (d) => {
-    console.log(data.attachments[0].base64);
-
-    let atms = [];
-    Object.values(data.attachments).map((val) => {
-      atms.push(val.base64);
-    });
-    d.attachments = atms;
+    d.attachments = data.attachments;
     d.author = user.email;
-    // console.log(d);
+
     dispatch(createPost(d));
+    dispatch(getPosts());
   };
+  useEffect(() => {
+    if (data.attachment) {
+      let atms = [...data.attachments];
+      atms.push(data.attachment[0].base64);
+      setData({
+        ...data,
+        attachments: atms,
+      });
+    }
+  }, [data.attachment]);
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="text-secondary-text ">
-        <textarea
-          className="text-2xl pb-10 pt-4 w-full"
-          placeholder={`${user.firstName} ơi, bạn đang nghĩ gì thế?`}
-          {...register("content")}
-          onChange={(e) => {
-            setData({ ...data, content: e.target.value });
-          }}
-        ></textarea>
-        <div className="flex justify-between items-center">
-          <img
-            src={AaSquare}
-            alt="Icon Aa Square "
-            className="cursor-pointer h-[38px]"
-          />
-          <FontAwesomeIcon
-            data-tip="Emoji"
-            data-for="icon-createPost"
-            icon={faFaceSmile}
-            className="cursor-pointer text-2xl hover:text-white"
-          />
+      <div
+        className={`max-h-[300px] -mx-3 scrollbar-width-2 scrollbar scrollbar-thumb-neutral-500 scrollbar-track-neutral-800`}
+      >
+        <div className="text-secondary-text px-3">
+          <textarea
+            className="text-2xl pb-10 w-full normal-case "
+            placeholder={`${user.firstName} ơi, bạn đang nghĩ gì thế?`}
+            {...register("content")}
+            onChange={(e) => {
+              setData({ ...data, content: e.target.value });
+            }}
+          ></textarea>
+          <div className="flex justify-between items-center">
+            <img
+              src={AaSquare}
+              alt="Icon Aa Square "
+              className="cursor-pointer h-[38px]"
+            />
+            <FontAwesomeIcon
+              data-tip="Emoji"
+              data-for="icon-createPost"
+              icon={faFaceSmile}
+              className="cursor-pointer text-2xl hover:text-white"
+            />
+          </div>
+          {data.attachments.length ? (
+            <div className="border-[1px] border-divider rounded-lg p-2 flex justify-between items-center relative">
+              <CustomButton
+                className={`absolute left-4 top-4 bg-white text-black`}
+                icon={faCameraAlt}
+              >
+                <FileBase64
+                  // {...register("attachments")}
+                  accept="image/*"
+                  multiple={true}
+                  value={data.attachment}
+                  onDone={(base64) => setData({ ...data, attachment: base64 })}
+                />
+                Thêm ảnh/ video
+              </CustomButton>
+              <Grid images={data.attachments} />
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
       <div className="py-4">
@@ -72,21 +109,21 @@ const FormCreatePost = () => {
           </span>
           <div className="flex items-center -mx-1">
             <HoverIcon
-              className="w-9 h-9 mx-[2px]"
+              className="w-9 h-9 mx-[2px] relative"
               data-tip="Ảnh/video"
               data-for="icon-createPost"
             >
               <FileBase64
-                {...register("attachments")}
+                // {...register("attachments")}
                 accept="image/*"
                 multiple={true}
-                value={data.attachments}
-                onDone={(base64) => setData({ ...data, attachments: base64 })}
+                value={data.attachment}
+                onDone={(base64) => setData({ ...data, attachment: base64 })}
               />
 
               <FontAwesomeIcon
                 icon={faImages}
-                className="text-[22px] text-colorIcon-green"
+                className="text-[22px] text-colorIcon-green cursor-pointer"
               />
             </HoverIcon>
             <div className={`bg-[url("")]`}></div>

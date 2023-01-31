@@ -14,9 +14,12 @@ import TooltipIconCreatePost from "../../Custom/Tooltip/TooltipIconCreatePost";
 import { getNickname } from "../../../constant";
 import { useSelector } from "react-redux";
 import FormCreatePost from "./FormCreatePost";
+import { ToastContainer } from "react-toastify";
+import Loading from "../../Custom/Loading/Loading";
 
 const ModalCreatePost = (props, ref) => {
   const user = useSelector((state) => state.user.currentUser);
+  const loading = useSelector((state) => state.post.loading);
   const [openModal, setOpenModal] = useState(false);
   const refModalContent = useRef();
   useEffect(() => {
@@ -44,6 +47,7 @@ const ModalCreatePost = (props, ref) => {
           : "hidden"
       }
     >
+      <Loading loading={loading} backgroundColor="#000000b3" />
       <div className="w-[500px] relative" ref={refModalContent}>
         <Wrapper className="border-2 !rounded-lg border-[#2f3031]">
           <button
@@ -61,7 +65,7 @@ const ModalCreatePost = (props, ref) => {
           </h4>
           <div className="border-b-[1px] border-color-border"></div>
           <div className="p-4">
-            <div className="flex items-center">
+            <div className="flex items-center pb-4">
               <HoverImg src={avt} className="w-10 h-10" />
               <div className="ml-2">
                 <div className="text-white">
@@ -81,6 +85,7 @@ const ModalCreatePost = (props, ref) => {
         </Wrapper>
       </div>
       <TooltipIconCreatePost />
+      <ToastContainer />
     </div>
   );
 };

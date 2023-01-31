@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import api from "../../api";
+import { clearHeader, setHeader } from "../../api/setHeader";
+import { getAllPost, getPosts } from "../Content/CreatePost/PostSlice";
 
 const initialState = {
   currentUser: null,
@@ -33,6 +35,10 @@ export const login = createAsyncThunk("login", async (data, thunkAPI) => {
     toast.dismiss();
     if (result.data.success) {
       toast.success(result.data.message);
+
+      setHeader(result.data.token);
+      getPosts();
+      getAllPost();
       return result.data.user;
     }
     toast.error(result.data.message);
@@ -49,6 +55,7 @@ const authSlice = createSlice({
     logout: (state, action) => {
       state.currentUser = null;
       state.successLogin = false; //isAuthenticated
+      clearHeader();
     },
   },
   extraReducers: {

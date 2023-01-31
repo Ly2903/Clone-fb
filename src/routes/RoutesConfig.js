@@ -4,16 +4,16 @@ import Home from "../pages/Home/Home";
 import Login from "../components/Auth/Login/Login";
 import LoginValidation from "../components/Auth/Login/LoginValidation";
 import Profile from "../pages/Profile/Profile";
-
+import PrivateRoutes from "./PrivateRoutes";
 const RoutesConfig = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/loginValidation" element={<LoginValidation />} />
-        <Route index path="/" element={<Home />} />
-        <Route index path="/profile" element={<Profile />} />
-        {/* <Route
+        {/* <Route index path="/" element={<Home />} />
+        <Route index path="/profile" element={<Profile />} /> */}
+        <Route
           index
           path="/"
           element={
@@ -30,7 +30,7 @@ const RoutesConfig = () => {
               <Profile />
             </PrivateRoutes>
           }
-        /> */}
+        />
       </Routes>
     </BrowserRouter>
   );
