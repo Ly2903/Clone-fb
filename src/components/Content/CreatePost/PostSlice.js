@@ -8,6 +8,8 @@ const initialState = {
   loading: false,
   posts: [],
   allPost: [],
+  loadingGetAllPost: false,
+  loadingGetPost: false,
 };
 
 export const createPost = createAsyncThunk(
@@ -32,7 +34,6 @@ export const getPosts = createAsyncThunk("getPosts", async (data, thunkAPI) => {
   try {
     const result = await api.get("/api/v1/post/getPosts");
 
-    console.log("get post", result);
     return result.data.posts;
   } catch (error) {
     return thunkAPI.rejectWithValue("Get Post fail!");
@@ -44,8 +45,7 @@ export const getAllPost = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const result = await api.get("/api/v1/post/getAllPost");
-
-      console.log("get post", result);
+      console.log("ket qua load all post", result.data.posts);
       return result.data.posts;
     } catch (error) {
       return thunkAPI.rejectWithValue("Get Post fail!");
@@ -67,11 +67,26 @@ const postSlice = createSlice({
     [createPost.rejected]: (state, action) => {
       state.loading = false;
     },
-    [getPosts.fulfilled]: (state, action) => {
-      state.posts = action.payload;
+
+    [getAllPost.pending]: (state, action) => {
+      state.loadingGetAllPost = true;
     },
     [getAllPost.fulfilled]: (state, action) => {
       state.allPost = action.payload;
+      state.loadingGetAllPost = false;
+    },
+    [getAllPost.rejected]: (state, action) => {
+      state.loadingGetAllPost = false;
+    },
+    [getPosts.pending]: (state, action) => {
+      state.loadingGetPost = true;
+    },
+    [getPosts.fulfilled]: (state, action) => {
+      state.posts = action.payload;
+      state.loadingGetPost = false;
+    },
+    [getPosts.rejected]: (state, action) => {
+      state.loadingGetPost = false;
     },
   },
 });

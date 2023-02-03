@@ -9,8 +9,13 @@ const NavMain = () => {
   const user = useSelector((state) => state.user.currentUser);
   return (
     <ul className="py-2">
-      <NavBarItem content="Trang chủ" icon={faHouse} active={true} link="/" />
-      <NavBarItem content={getNickname(user)} img={avt} />
+      <NavBarItem value="home" content="Trang chủ" icon={faHouse} link="/" />
+      <NavBarItem
+        value="profile"
+        content={getNickname(user)}
+        img={avt}
+        link="/profile"
+      />
     </ul>
   );
 };

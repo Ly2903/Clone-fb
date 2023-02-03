@@ -4,14 +4,14 @@ import Wrapper from "../../../../components/Wrapper/Wrapper";
 import PostItem from "../../../../components/Content/PostList/PostItem/PostItem";
 import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "../../../../components/Content/CreatePost/PostSlice";
+import Loading from "../../../../components/Custom/Loading/Loading";
 
 const PostContent = () => {
-  const posts = useSelector((state) => state.post.posts);
+  const { posts, loadingGetPost } = useSelector((state) => state.post);
   const user = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPosts());
-    console.log("selector post ", posts);
   }, []);
   return (
     <>
@@ -30,33 +30,28 @@ const PostContent = () => {
           </div>
         </div>
       </Wrapper>
-
-      {Object.keys(posts).length === 0 ? (
-        <Wrapper className="p-4">
-          <p className="text-secondary-text font-medium text-xl text-center">
-            Không có bài viết
-          </p>
+      {loadingGetPost ? (
+        <Wrapper className="p-10 relative flex justify-center items-center">
+          <Loading loading={loadingGetPost} backgroundColor="bg-nav-bar-bg" />
         </Wrapper>
       ) : (
-        posts.map((val) => {
-          return (
-            <Wrapper key={val._id}>
-              <PostItem val={val} />
+        <>
+          {Object.keys(posts).length === 0 ? (
+            <Wrapper className="p-4">
+              <p className="text-secondary-text font-medium text-xl text-center">
+                Không có bài viết
+              </p>
             </Wrapper>
-            //     <PostItem
-            //       key={val._id}
-            //       avt={avt}
-            //       nickname="Ly Trần"
-            //       time="58 phút"
-            //       content="Noel em vẫn một mình,
-            // Nếu anh cũng thế thì mình xui ghê 😆
-            // 🎄 𝐌 𝐞 𝐫 𝐫 𝐲 𝐂 𝐡 𝐫 𝐢 𝐬 𝐭 𝐦 𝐚 𝐬 🎄
-            // ⛄Chúc mọi người có một mùa giáng sinh an lành và ấm áp ❤️"
-            //       src={{ images: [avt] }}
-            //       react={{ react: "123", comment: "12", share: "3" }}
-            //     />
-          );
-        })
+          ) : (
+            posts.map((val) => {
+              return (
+                <Wrapper key={val._id}>
+                  <PostItem val={val} />
+                </Wrapper>
+              );
+            })
+          )}
+        </>
       )}
     </>
   );

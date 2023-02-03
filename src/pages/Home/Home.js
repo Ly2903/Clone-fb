@@ -11,8 +11,9 @@ const Home = () => {
     <div className="h-screen overflow-hidden">
       <Header />
       <div className="bg-primary-bg flex h-full pt-14 justify-between">
-        <Navbar width="300px" showFooter={true} />
-        <div className="w-[590px] scrollbar-width-0 scrollbar">
+        <Navbar className="xs:w-[60px] xl:w-[300px]" showFooter={true} />
+
+        <div className="w-[590px] scrollbar-width-0 scrollbar ">
           <RealTime />
           <CreatePost />
           <PostList />

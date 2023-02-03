@@ -9,6 +9,7 @@ const initialState = {
   successLogin: false,
   successRegister: false,
   loading: false,
+  users: [],
 };
 
 export const registerUser = createAsyncThunk(
@@ -37,8 +38,7 @@ export const login = createAsyncThunk("login", async (data, thunkAPI) => {
       toast.success(result.data.message);
 
       setHeader(result.data.token);
-      getPosts();
-      getAllPost();
+
       return result.data.user;
     }
     toast.error(result.data.message);

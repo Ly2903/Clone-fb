@@ -5,11 +5,19 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getListFriends } from "../../../pages/Friends/friendsSlice";
 import HoverIcon from "../../Custom/Icon/HoverIcon";
 import TooltipIconHeader from "../../Custom/Tooltip/TooltipIconHeader";
 import ContactItem from "./ContactItem";
 
 const Contact = () => {
+  const list = useSelector((state) => state.friends.list);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getListFriends());
+  }, []);
   return (
     <div className="mt-4 pr-4">
       <div className="flex justify-between items-center mb-3">
@@ -40,18 +48,9 @@ const Contact = () => {
         </div>
       </div>
       <div>
-        <ContactItem />
-        <ContactItem />
-        <ContactItem />
-        <ContactItem />
-        <ContactItem />
-        <ContactItem />
-        <ContactItem />
-        <ContactItem />
-        <ContactItem />
-        <ContactItem />
-        <ContactItem />
-        <ContactItem />
+        {list.map((val) => {
+          return <ContactItem key={val._id} val={val} />;
+        })}
       </div>
       <TooltipIconHeader />
     </div>

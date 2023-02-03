@@ -7,14 +7,16 @@ const NavBarGroup = () => {
   return (
     <ul className="py-2">
       <NavBarItem
+        value="group"
         content="Nhóm"
         icon={faUserGroup}
         bgIcon={true}
         fontsize="17px"
       />
-      <NavBarItem content="[D19CNPM01-PTITHCM]" img={avt} />
-      <NavBarItem content="Nhóm Lập Trình WEB Front End" img={avt} />
+      <NavBarItem value="" content="[D19CNPM01-PTITHCM]" img={avt} />
+      <NavBarItem value="" content="Nhóm Lập Trình WEB Front End" img={avt} />
       <NavBarItem
+        value=""
         content="Nhóm Làm Đẹp Dành Cho Bạn jcdshsvdjvhdvhsh jdsn vk"
         img={avt}
       />

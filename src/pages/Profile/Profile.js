@@ -11,10 +11,7 @@ const Profile = () => {
     <div className="h-screen overflow-hidden">
       <Header />
       <main className="bg-primary-bg flex h-full pt-14">
-        <Navbar
-          width="60px"
-          className="bg-nav-bar-bg border-r-[1px] border-color-border"
-        />
+        <Navbar className="bg-nav-bar-bg border-r-[1px] border-color-border w-[60px]" />
         <div className="flex-1 scrollbar-width-2 scrollbar scrollbar-thumb-neutral-500 scrollbar-track-neutral-800 pb-10">
           <div className="bg-nav-bar-bg flex justify-center">
             <ContentHeader activeTab={activeTab} setActiveTab={setActiveTab} />

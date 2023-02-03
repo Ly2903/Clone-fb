@@ -20,7 +20,7 @@ import HoverIcon from "../../Custom/Icon/HoverIcon";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { createPost, getPosts } from "./PostSlice";
+import { createPost, getAllPost, getPosts } from "./PostSlice";
 import "../../../assets/scss/input.scss";
 import { useEffect } from "react";
 import CustomButton from "../../../pages/Profile/Content/CustomButton";
@@ -42,6 +42,7 @@ const FormCreatePost = () => {
 
     dispatch(createPost(d));
     dispatch(getPosts());
+    dispatch(getAllPost());
   };
   useEffect(() => {
     if (data.attachment) {

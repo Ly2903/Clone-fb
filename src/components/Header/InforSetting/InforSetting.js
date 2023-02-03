@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Auth/authSlice";
 import { getNickname } from "../../../constant";
+import SettingItem from "./SettingItem";
+import { ActiveNavContext } from "../../../Context/ActiveNavContext";
+import { useContext } from "react";
 
 const InforSetting = ({
   showInforSetting,
@@ -15,6 +18,7 @@ const InforSetting = ({
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.currentUser);
   const ref = useRef();
+  const { activeTabNav, setActiveTabNav } = useContext(ActiveNavContext);
   useEffect(() => {
     document.addEventListener("click", handleClickOutside, true);
     return () => {
@@ -39,6 +43,9 @@ const InforSetting = ({
         <Link
           to="/profile"
           className="flex cursor-pointer mb-1 items-center py-3 px-2 w-full transition duration-300 hover:bg-hover-bg rounded-md"
+          onClick={() => {
+            setActiveTabNav("profile");
+          }}
         >
           <img src={avt} alt="" className="w-9 h-9 rounded-full" />
           <span className="ml-3 text-[17px] text-primary-text">
@@ -51,20 +58,15 @@ const InforSetting = ({
         </p>
       </div>
       <div className="p-2">
-        <Link
-          to="/login"
-          replace
-          className="rounded-md flex items-center p-2 hover:bg-hover-bg transition duration-300 cursor-pointer"
-          onClick={() => dispatch(logout())}
-        >
-          <div className="w-9 h-9 rounded-full bg-secondary-button-bg flex justify-center items-center">
-            <FontAwesomeIcon
-              icon={faRightToBracket}
-              className="text-xl text-primary-text"
-            />
-          </div>
-          <span className="text-primary-text ml-3">Đăng xuất</span>
-        </Link>
+        <SettingItem
+          content="Đăng xuất"
+          icon={faRightToBracket}
+          link="/login"
+          onClickHandle={() => {
+            dispatch(logout());
+          }}
+          arrow={false}
+        />
       </div>
     </div>
   );

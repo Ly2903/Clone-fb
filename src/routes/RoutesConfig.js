@@ -5,6 +5,11 @@ import Login from "../components/Auth/Login/Login";
 import LoginValidation from "../components/Auth/Login/LoginValidation";
 import Profile from "../pages/Profile/Profile";
 import PrivateRoutes from "./PrivateRoutes";
+import Friends from "../pages/Friends/Friends";
+import Suggestions from "../pages/Friends/Suggestions/Suggestions";
+import FriendsMain from "../pages/Friends/FriendsMain";
+import Requests from "../pages/Friends/Requests/Requests";
+import List from "../pages/Friends/List/List";
 const RoutesConfig = () => {
   return (
     <BrowserRouter>
@@ -23,7 +28,6 @@ const RoutesConfig = () => {
           }
         />
         <Route
-          index
           path="/profile"
           element={
             <PrivateRoutes>
@@ -31,6 +35,19 @@ const RoutesConfig = () => {
             </PrivateRoutes>
           }
         />
+        <Route
+          path="/friends"
+          element={
+            <PrivateRoutes>
+              <Friends />
+            </PrivateRoutes>
+          }
+        >
+          <Route index path="" element={<FriendsMain />} />
+          <Route path="requests" element={<Requests />} />
+          <Route path="suggestions" element={<Suggestions />} />
+          <Route path="list" element={<List />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
