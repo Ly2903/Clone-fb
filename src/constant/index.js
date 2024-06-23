@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 export const getNickname = (user) => {
-  return user.lastName + " " + user.firstName;
+  return user ? user.lastName + " " + user.firstName : "";
 };
 
 export const classButton =

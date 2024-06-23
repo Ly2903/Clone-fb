@@ -10,6 +10,7 @@ import Suggestions from "../pages/Friends/Suggestions/Suggestions";
 import FriendsMain from "../pages/Friends/FriendsMain";
 import Requests from "../pages/Friends/Requests/Requests";
 import List from "../pages/Friends/List/List";
+import NotFound from "../pages/NotFound/NotFound";
 const RoutesConfig = () => {
   return (
     <BrowserRouter>
@@ -48,6 +49,7 @@ const RoutesConfig = () => {
           <Route path="suggestions" element={<Suggestions />} />
           <Route path="list" element={<List />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
